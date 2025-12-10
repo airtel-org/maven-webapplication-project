@@ -104,7 +104,7 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>KK FUNDA Snapshot Nexus Repository </name>
-	      <url>http://15.207.14.166:8081</url>
+	      <url>http://http://15.207.14.166:8081/repository/jio-om.snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
