@@ -22,7 +22,7 @@
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
 	
-		<sonar.host.url>http://35.154.181.127:9000/</sonar.host.url>
+		<sonar.host.url>http://52.66.249.235:9000/</sonar.host.url>
 		<sonar.login>admin</sonar.login>
 		<sonar.password>password</sonar.password> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -105,7 +105,7 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>KK FUNDA Snapshot Nexus Repository </name>
-	      <url>http://13.232.181.183:8081/repository/jio-om.snapshot/</url>
+	      <url>http://65.0.131.221:8081/repository/jio-om.snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
