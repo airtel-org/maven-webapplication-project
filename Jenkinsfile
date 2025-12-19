@@ -7,7 +7,7 @@ pipeline{
 	}
 	stages{
 	stage('git checkout'){
-	stepts{
+	steps{
 	git branch: 'dev', url: 'https://github.com/airtel-org/maven-webapplication-project.git'
 	}
 	}
