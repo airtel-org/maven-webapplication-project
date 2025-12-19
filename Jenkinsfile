@@ -1,28 +1,45 @@
-node{
-def maven=tool name:"maven"
-stage('git checkout'){
+
+
+pipeline{
+	agent any
+	tools{
+	maven "maven"
+	}
+	stages{
+	stage('git checkout'){
+	stepts{
 	git branch: 'dev', url: 'https://github.com/airtel-org/maven-webapplication-project.git'
-}
-stage('maven compile'){
-	sh "${maven}/bin/mvn clean compile" 
-}
-stage('maven build'){
-	sh "${maven}/bin/mvn clean package" 
-}
-stage('sonarqube'){
-	sh "${maven}/bin/mvn clean package sonar:sonar" 
-}
-stage('nexus'){
-	sh "${maven}/bin/mvn clean deploy" 
-}
-stage('tomcat deployment'){
-	   sh """
-	      curl -u nitheesh:password \
---upload-file /var/lib/jenkins/workspace/scriped-pipeline-1/target/maven-web-application.war \
-"http://15.206.203.54:8080/manager/text/deploy?path=/maven-web-application&update=true"
-          
-        """
+	}
+	}
+     stage('maven compile'){
+     steps{
+     sh "mvn clean compile"
+     }
+     }
+     stage('maven build'){
+     steps{
+     sh "mvn package"
+     }
+     }
+     stage('sonar'){
+     steps{
+     sh "mvn sonar:sonar"
+     }
+     }
+     stage('nexus'){
+     steps{
+     sh "mvn deploy"
+     }
+     }
+     stage('deploy'){
+     steps{
+     sh """
+  curl -u kk:password \
+--upload-file /var/lib/jenkins/workspace/declarative-prac/target/maven-web-application.war \
+"http://13.204.75.126:8080/manager/text/deploy?path=/maven-web-application&update=true"
+"""
+     }
+     }
 
+	}
 }
-}
-
